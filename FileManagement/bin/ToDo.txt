@@ -1,0 +1,48 @@
+Everything:
+	- Make sure to have comments on all code specifically once it is fully operational
+	- Make sure all code is clean and easy to follow along
+	- Add javadocs
+
+Encryption:
+	- Maybe make it so that there is more encryption types and different levels of security
+	- Make sure that you can not just open the resulting file and read the password
+
+EnhancedJarArchive:
+	- There are a lot of ways for the program to crash through this class please add the data validation
+	- Multiple input files is working make sure it has the correct functionality
+	- Test to make sure the Jar Archiver has all the same functionality as the zipper
+	
+EnhancedZipper:
+	- Make sure that all of the methods are infallible and all exceptions are caught
+	- Test the functionality of adding multiple input files and check all the exceptions and such
+	- In the _CreateZipFile method there has got to be a better way of checking if there are duplicate file entries
+	
+GenericFileIO:
+	- I would like to add more functionality to this class or maybe even break a bunch of things up into more specific classes
+	
+HexFileReader:
+	- Maybe some functionality so that I can choose offsets of the file that I want to read in
+	- Change it to none static methods
+	
+HiddenMessageReader:
+	- Clean up the code and definitely put comments in
+	- Make it so that I could possibly read out different things other then strings
+		- I don't know if it would be helpful or even have any use
+		- But maybe something like reading in a message of numbers or something?
+	- Other file types?
+	
+HiddenMessageWriter:
+	- Maybe make the two methods that hide the message in a picture use one common method to
+	clean up some of the code and shorten the length of the file
+	- Make the messages capable of taking multiple types of objects
+	- Other file types?
+	- I can't make a new png file figure out why
+	- Hide other files inside a picture??
+	
+JarArchiver:
+	- Make sure it works
+	- Maybe add the ability to use data encryption
+
+Zipper:
+	- Make sure it works
+	- Maybe add the ability to use data encryption
