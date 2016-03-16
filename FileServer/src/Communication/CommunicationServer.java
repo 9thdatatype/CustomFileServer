@@ -16,10 +16,10 @@ import java.util.Vector;
  * @since Mar 16, 2016
  */
 public class CommunicationServer {
-	Vector<Socket> connections = new Vector<Socket>();
-	Vector<ObjectInputStream > commIn = new Vector<ObjectInputStream>();
-	Vector<ObjectOutputStream> commOut = new Vector<ObjectOutputStream>();
-	boolean running = true;
+	private Vector<Socket> connections = new Vector<Socket>();
+	private Vector<ObjectInputStream > commIn = new Vector<ObjectInputStream>();
+	private Vector<ObjectOutputStream> commOut = new Vector<ObjectOutputStream>();
+	private boolean running = true;
 	
 	
 	CommunicationServer(){
@@ -29,6 +29,27 @@ public class CommunicationServer {
 		dataThread.start();
 		System.out.println("Data Transfer thread started");
 		System.out.println("\n-----READY FOR CONNECTION-----\n");
+	}
+	
+	public void stop(){
+		running = false;
+		while(connections.size()> 0){
+			try {
+				commOut.get(0).write("**Disconnect".getBytes());
+				commOut.get(0).flush();
+				commOut.get(0).close();
+				System.out.println(connections.get(0).getInetAddress() + "'s output closed");
+				commIn.get(0).close();
+				System.out.println(connections.get(0).getInetAddress() + "'s input closed");
+				connections.get(0).close();
+				connections.remove(0);
+				System.out.println("Sucessfully removed a connection");
+			} catch (IOException e) {
+				System.out.println("Failed to close");
+				e.printStackTrace();
+			}
+		}
+		
 	}
 	
 	

@@ -40,7 +40,15 @@ public class CommunicationConnect {
 		oOut = (ObjectOutputStream) comm.getOutputStream();
 		oIn = (ObjectInputStream) comm.getInputStream();
 		System.out.println("Connection Sucessfull!");
+		readData.start();
 	}
+	
+	Thread readData = new Thread(){
+		public void run(){
+			System.out.println("Reading data!");
+			
+		}
+	};
 }
 
 
